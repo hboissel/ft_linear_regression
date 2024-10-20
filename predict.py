@@ -2,7 +2,6 @@ import argparse
 
 import utils
 
-# Function that get the theta0 and theta1 from file path
 def get_theta_values(file_path):
     try:
         with open(file_path, mode='r') as file:
@@ -15,7 +14,6 @@ def get_theta_values(file_path):
         
     return theta0, theta1
 
-# function that is asking the user for the input and then predict the output
 def predict_output(theta0, theta1):
     try:
         input_value = float(input("Enter the input value: "))
@@ -28,12 +26,8 @@ def predict_output(theta0, theta1):
     print(f"The output value for the input {input_value} is {output}")
 
 if __name__ == '__main__':
-    #parse arguments and get the file path for thetas
     parser = argparse.ArgumentParser()
     parser.add_argument('--file-path', type=str, default='thetas.txt', help='File with the theta values')
     args = parser.parse_args()
-
-    #get the theta values from the file
     theta0, theta1 = get_theta_values(args.file_path)
-    #predict the output
     predict_output(theta0, theta1)
